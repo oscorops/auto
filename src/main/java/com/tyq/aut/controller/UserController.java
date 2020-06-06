@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tyq.aut.entity.User;
 import com.tyq.aut.service.impl.UserServiceImpl;
 import com.tyq.aut.util.SmsUtil;
+import com.tyq.aut.util.TemplateCode;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("/findall")
+    @GetMapping("/findall")
     public IPage<User> findAll() {
 
         IPage<User> page = new Page<>(2, 2);
@@ -46,11 +47,11 @@ public class UserController {
 
         String code = String.valueOf((int) ((Math.random() * 9 + 1) * 1000));
 
-        map.put("code", code);
+        map.put("code",code);
 
         SmsUtil sms = new SmsUtil();
 
-        if (sms.sendMsm(phone, map)) {
+        if (sms.sendMsm(phone, map, TemplateCode.os)) {
             return "send  success"+code+"发送至"+phone;
         } else {
             return "send false";

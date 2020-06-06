@@ -13,7 +13,7 @@ import com.aliyuncs.profile.DefaultProfile;
 import java.util.Map;
 
 public class SmsUtil {
-    public boolean sendMsm(String phone, Map map){
+    public boolean sendMsm(String phone, Map map ,String code){
 
         DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4GDkTMgLW6CbpaUgApWp", "n0Wx7X9lbWQ0B0DgPKXdc0KS1lOwx3");
         IAcsClient client = new DefaultAcsClient(profile);
@@ -27,7 +27,7 @@ public class SmsUtil {
 
         request.putQueryParameter("PhoneNumbers",phone);
         request.putQueryParameter("SignName","OSCO");
-        request.putQueryParameter("TemplateCode","SMS_192370366");
+        request.putQueryParameter("TemplateCode",code);
 
 
 
