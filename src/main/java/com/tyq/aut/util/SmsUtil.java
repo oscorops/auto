@@ -15,7 +15,7 @@ import java.util.Map;
 public class SmsUtil {
     public boolean sendMsm(String phone, Map map ,String code){
 
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4GDkTMgLW6CbpaUgApWp", "n0Wx7X9lbWQ0B0DgPKXdc0KS1lOwx3");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "no", "no");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();
