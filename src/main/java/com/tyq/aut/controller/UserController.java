@@ -56,6 +56,12 @@ public class UserController {
         } else {
             return "send false";
         }
+        
+        @getMapping("user/getUserById")
+        public User getuserById(@PathVariable("id") int userId){
+            
+            return userService.getByIdI(id);
+        }
 
 
     }
